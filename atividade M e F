@@ -1,0 +1,21 @@
+pessoas = []
+
+for i in range(15):
+    print(f"Pessoa {i+1}:") 
+    altura = float(input("Digite a altura: ").strip().replace(",", "."))
+    sexo = input("Digite o gênero M para masculino e F para feminino: ").strip().upper()
+    pessoas.append((altura, sexo))
+
+alturas = [p[0] for p in pessoas]
+menor_altura = min(alturas)
+maior_altura = max(alturas)
+
+homens = [p[0] for p in pessoas if p[1] == 'M']
+media_altura_h = sum(homens) / len(homens) if homens else 0
+
+mulheres = sum(1 for p in pessoas if p[1] == 'F')
+
+print(f"Maior altura: {maior_altura:.2f}m")
+print(f"Menor altura: {menor_altura:.2f}m")
+print(f"Média de altura dos homens: {media_altura_h:.2f}m")
+print(f"Número de mulheres: {mulheres}")
