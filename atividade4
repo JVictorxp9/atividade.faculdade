@@ -1,0 +1,26 @@
+function calcularTotal(precoUnitario, quantidade) {
+    return precoUnitario * quantidade;
+}
+
+function aplicarDesconto(valorTotal) {
+    return valorTotal > 100 ? valorTotal * 0.9 : valorTotal;
+}
+
+function exibirResumo() {
+    let precoUnitario = parseFloat(prompt("Digite o preço unitário do produto:"));
+    let quantidade = parseInt(prompt("Digite a quantidade comprada:"));
+    
+    if (isNaN(precoUnitario) || isNaN(quantidade) || precoUnitario <= 0 || quantidade <= 0) {
+        console.log("Valores inválidos. Por favor, insira números válidos.");
+        return;
+    }
+    
+    let valorTotal = calcularTotal(precoUnitario, quantidade);
+    let valorComDesconto = aplicarDesconto(valorTotal);
+    
+    console.log("Resumo da compra:");
+    console.log(`Valor total antes do desconto: R$ ${valorTotal.toFixed(2)}`);
+    console.log(`Valor final com desconto: R$ ${valorComDesconto.toFixed(2)}`);
+}
+
+exibirResumo();
